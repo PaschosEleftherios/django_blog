@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  My Blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}"/>
+  <link rel="stylesheet" href="{% static "blog/index.css" %}"/>
+{% endblock %}
+
+{% block content %}
+  <section id="welcome">
+    <header>
+      <img src="{% static "blog/images/1.jpg" %}" alt="Eleftherios  - Author of the Blog"/>
+      <h2>Paschos Blog</h2>
+    </header>
+    <p>Hi, i am Lefteris and this is my personal blog!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My latest thoughts</h2>
+    <ul>
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>What i do</h2>
+    <p>I love programming, solve complex problems and i enjoy learning new technologies.</p>
+    <p>My goal is to keep growing as a developer.</p>
+  </section>
+{% endblock %}
